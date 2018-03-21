@@ -1,0 +1,26 @@
+// requirements 
+// aws cli has to be installed 
+// working AWS credentials file ~/.aws/credentials
+
+// copy this file as tasks.json under the .vscode directory in your templates project directory
+// open your CloudFormation template and hit Ctrl + Shift + B
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "more",
+            "type": "shell",
+            "command": "aws",
+            "args": [
+                "cloudformation",
+                "validate-template",
+                "--template-body",
+                "file://${file}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

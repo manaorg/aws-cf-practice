@@ -1,0 +1,27 @@
+{
+"AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "This template used to output all Intrinsic Functions",
+  
+    "Resources": {
+        
+        "s3Bucket": {
+            "Type": "AWS::S3::Bucket"
+            
+        }
+        
+    },
+    "Outputs": {
+        "FnBase64":{
+            "Value": {"Fn::Base64" : "This string is base 64 Encoded"}
+        },
+        "CIDRBlock":{
+            "Value":{
+                "Fn::Join" :[",", {
+                    "Fn::Cidr":["10.0.0.0/8","5","20"]
+                    }
+                ]
+            }
+        }
+
+    }
+}
